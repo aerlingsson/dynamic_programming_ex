@@ -30,7 +30,8 @@ defmodule RodCutter do
   #|_| \_|\__,_|_| \_/ \___|
 
   @doc """
-  Naive implementation that always recalculates all intermediate results
+  Naive implementation that always recalculates all intermediate results.
+  Has O(2^(n-1)) running time.
 
   iex(1)> RodCutter.cut_rod_naive(20)
   "Input: 20, result: 56, time: 118000 µs"
@@ -58,7 +59,7 @@ defmodule RodCutter do
   #           |_|
 
   @doc """
-  Dynamic programming implementation that recursively calculates the best price for each length
+  Dynamic programming implementation that recursively calculates the best price for each length.
   and memoizes each result.
   Has O(n^2) running time.
 
@@ -103,8 +104,8 @@ defmodule RodCutter do
   Then looks up the best price for n.
   Has O(n^2) running time.
 
-  If you were to run this once for all keys in @prices and store the result in e.g. a dets file,
-  this would be the most optimal implementation; calculate once and then simply lookup any n.
+  If you were to run this once for all keys in @prices and store the result in e.g. a :dets file,
+  this would be the most optimal implementation.
 
   iex(16)> RodCutter.cut_rod_bu(20)
   "Input: 20, result: 56, time: 62 µs"
